@@ -1,0 +1,21 @@
+version: '2' 
+services:
+  livedb:
+    image: index.alauda.cn/alaien/srs-db
+    ports: 
+      - "3306:3306"
+  
+  livewebclient:
+    depends_on:
+      - livedb
+    image: index.alauda.cn/alaien/srs-web-client
+    links:
+      - livedb
+    ports:
+      - "3000:3000"
+      
+  liveserver:
+    image: index.alauda.cn/alaien/rtmp-nginx-in-docker
+    ports:
+      - "1935:1935"
+      - "8099:80"
