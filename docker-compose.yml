@@ -13,6 +13,7 @@ services:
       - livedb
     ports:
       - "3000:5000"
+      - "8080:80"
       
   liveserver:
     image: index.alauda.cn/alaien/rtmp-nginx-in-docker
